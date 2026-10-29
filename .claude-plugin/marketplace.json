@@ -1,0 +1,5 @@
+{
+  "name": "claude-easy-tracking",
+  "owner": { "name": "DanielCohen002" },
+  "plugins": [{ "name": "easy-tracking", "source": "./" }]
+}
