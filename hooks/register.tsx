@@ -49,7 +49,7 @@ export const register: Register = on => {
 
     return (
       <Box flexDirection="column" borderStyle="round" borderColor="cyan" paddingX={1}>
-        <Text bold color="cyan">YOU</Text>
+        <Text bold color="cyan">{MARK}YOU</Text>
         <Text>{e.props.text}</Text>
       </Box>
     )
@@ -68,8 +68,8 @@ export const register: Register = on => {
       <Box flexDirection="column">
         {segments.map((s, i) =>
           s.isStep ? (
-            <Box key={`s${i}`} borderStyle="bold" borderColor="yellow" paddingX={1}>
-              <Text bold color="yellow">▶ YOUR TURN: </Text>
+            <Box key={`s${i}`} flexDirection="column" borderStyle="round" borderColor="yellow" paddingX={1}>
+              <Text bold color="yellow">{MARK}YOUR TURN</Text>
               <Markdown text={s.text} />
             </Box>
           ) : (
