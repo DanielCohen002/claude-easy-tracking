@@ -37,6 +37,25 @@ function split(text: string): Segment[] {
   return segments.filter(s => s.text.trim() !== '')
 }
 
+function formatDuration(ms: number): string {
+  const total = Math.round(ms / 1000)
+  const m = Math.floor(total / 60)
+  const sec = total % 60
+  return m > 0 ? `${m}m ${sec}s` : `${sec}s`
+}
+
+// A row is drawn more than once, so its clock time is fixed the first time it is seen
+const doneAt = new Map<string, string>()
+
+function doneTime(key: string): string {
+  let t = doneAt.get(key)
+  if (!t) {
+    t = new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+    doneAt.set(key, t)
+  }
+  return t
+}
+
 export const register: Register = on => {
   on('prompt.compose', async ($, e, next) => {
     const result = await next(e)
@@ -78,5 +97,16 @@ export const register: Register = on => {
         )}
       </Box>
     )
+  })
+
+  on('ui.render', { component: 'TurnDuration' }, ($, e, next) => {
+    if (e.props.waitingFor || e.props.isExpanded) {
+      return next(e)
+    }
+
+    const { Text } = $.ui.resolve(e)
+    const time = doneTime(`${e.props.word}:${e.props.durationMs}`)
+
+    return <Text color="green">✻ {e.props.word} for {formatDuration(e.props.durationMs)} · done {time}</Text>
   })
 }

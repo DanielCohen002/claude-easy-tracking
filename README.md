@@ -4,6 +4,8 @@ A Claude Code mod that makes a long conversation easier to follow. It draws your
 
 Both boxes share the same rounded border, with the label on its own line above the text.
 
+When a turn finishes, the "✻ … for 1m 5s" line is drawn in green with the clock time it finished, such as "· done 3:42 PM", so you can tell at a glance that Claude is done and not still running.
+
 Claude is told to start each line that needs your action with a `▶` marker. The mod draws those lines highlighted and leaves the marker alone inside code blocks.
 
 ## Install
