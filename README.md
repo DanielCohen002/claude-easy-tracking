@@ -1,6 +1,8 @@
 # easy-tracking
 
-A Claude Code mod that makes a long conversation easier to follow. It draws your own prompts in a cyan **YOU** box in the transcript, and it highlights the next steps Claude asks you to take in a yellow **▶ YOUR TURN** box, so you can spot what is waiting on you at a glance.
+A Claude Code mod that makes a long conversation easier to follow. It draws your own prompts in a cyan **▶ YOU** box in the transcript, and it highlights the next steps Claude asks you to take in a yellow **▶ YOUR TURN** box, so you can spot what is waiting on you at a glance.
+
+Both boxes share the same rounded border, with the label on its own line above the text.
 
 Claude is told to start each line that needs your action with a `▶` marker. The mod draws those lines highlighted and leaves the marker alone inside code blocks.
 
