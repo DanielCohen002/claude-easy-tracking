@@ -1,12 +1,14 @@
 {
-  "modules": ["./register.tsx"],
+  "modules": [
+    "./register.tsx"
+  ],
   "hooks": {
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "powershell -NoProfile -NonInteractive -Command \"(New-Object System.Media.SoundPlayer 'C:\\Windows\\Media\\ding.wav').PlaySync()\"",
+            "command": "python -I -c \"import winsound;winsound.PlaySound(r'C:\\Windows\\Media\\ding.wav',winsound.SND_FILENAME)\" || powershell -NoProfile -NonInteractive -Command \"(New-Object System.Media.SoundPlayer 'C:\\Windows\\Media\\ding.wav').PlaySync()\"",
             "async": true
           }
         ]
