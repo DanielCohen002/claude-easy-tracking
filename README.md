@@ -6,6 +6,8 @@ Both boxes share the same rounded border, with the label on its own line above t
 
 When a turn finishes, the "✻ … for 1m 5s" line is drawn in green with the clock time it finished, such as "· done 3:42 PM", so you can tell at a glance that Claude is done and not still running.
 
+When Claude finishes responding, a short ding plays (the Windows `ding.wav`, through a `Stop` hook). Remove the `hooks` block from `hooks/hooks.json` to turn it off.
+
 Claude is told to start each line that needs your action with a `▶` marker. The mod draws those lines highlighted and leaves the marker alone inside code blocks.
 
 ## Install
